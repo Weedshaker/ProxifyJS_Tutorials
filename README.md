@@ -3,4 +3,4 @@
   <h1 align="center">ProxifyJS Tutorials</h1>
 </p>
 
-- [Videos](https://weedshaker.github.io/ProxifyJS_Tutorials/)
+- [Videos](https://weedshaker.github.io/ProxifyJS_Tutorials/index.html)
