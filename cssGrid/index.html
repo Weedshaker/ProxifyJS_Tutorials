@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <title>ProxifyJS</title>
+</head>
+<body>
+    <script rel="modulepreload" type="module">
+        import { ProxifyHook } from './node_modules/@weedshaker/proxifyjs/JavaScript/Classes/Helper/ProxifyHook.js'
+        import { InitBasic } from './node_modules/@weedshaker/proxifyjs/JavaScript/Classes/Controller/InitBasic.js'
+
+        class Index {
+            constructor() {
+                const texts = [
+                    ['Text1', 'Text2', 'Text3', 'Text3', 'Text3', 'Text3', 'Text3', 'Text3', 'Text3', 'Text3'],
+                    ['Text1', 'Text2', 'Text3', 'Text4', 'Text5', 'Text6'],
+                    ['Text1', 'Text2', 'Text3', 'Text4'],
+                    ['Text1', 'Text2', 'Text3', 'Text4'],
+                    ['Text1', 'Text2', 'Text3', 'Text4']
+                ]
+                const columnsCount = texts[0].length
+                const __ = new ProxifyHook(InitBasic).get()
+                const body = __(document.getElementsByTagName('body')[0])
+                      .$setStyle('background: GhostWhite; font-family: "Open Sans", sans-serif;')
+                      .appendChild(__('section'))
+                        .$css([
+                            `{
+                                display: grid;
+                                grid-template: auto / repeat(${columnsCount}, 1fr);
+                            }`,
+                            `>div{
+                                background-color: lightgray;
+                            }`,
+                            `${texts[0].reduce((acc, curr, i) => `${acc}>div:nth-of-type(${columnsCount * 2}n + ${i + 1})${i < columnsCount && ','}`, '')}{
+                                background-color: initial;
+                            }`
+                        ])
+                        .$func(
+                            section => texts.forEach(
+                                row => Object.assign((new Array(columnsCount)).fill(''), row).forEach(
+                                    (text, i) => i < columnsCount && section.appendChild(__('div')).$setInnerHTML(text)
+                                )
+                            )
+                        )
+            }
+        }
+        new Index()
+    </script>
+</body>
+</html>

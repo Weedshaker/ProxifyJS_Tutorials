@@ -1,0 +1,22 @@
+{
+  "name": "proxifyjs_tutorials",
+  "version": "0.0.1",
+  "description": "Videos about ProxifyJS!",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Weedshaker/ProxifyJS_Tutorials.git"
+  },
+  "keywords": [
+    "Tutorial",
+    "Video",
+    "Proxify",
+    "ProxifyJS"
+  ],
+  "author": "Silvan Strübi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Weedshaker/ProxifyJS_Tutorials/issues"
+  },
+  "homepage": "https://weedshaker.github.io/ProxifyJS_Tutorials/"
+}
